@@ -57,7 +57,7 @@ Le diagramme de classes modélise la structure métier de l'application, avec le
 ## Installation
 
 1. Clonez ce repository :  
-   `git clone https://github.com/username/projet-ecommerce.git`
+   `https://github.com/aminejmili10/MicroserviceProject.git`
 
 2. Assurez-vous d'avoir Docker et Docker Compose installés sur votre machine pour gérer les microservices via des conteneurs.
 
