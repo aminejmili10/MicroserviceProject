@@ -5,7 +5,11 @@
 Ce projet est une plateforme de e-commerce structurée selon les principes des **microservices**. L'objectif est de diviser l'application en plusieurs services indépendants, chacun étant responsable d'un domaine métier spécifique. Cela permet de garantir une architecture scalable, maintenable et résiliente, tout en offrant une grande flexibilité pour l'ajout de nouvelles fonctionnalités.
 
 ## Architecture de l'Application
-
+Here are the key diagrams for the project:
+### Architecture
+![Architecture Diagram](documentation/Architecture.png)
+### Class Diagram
+![Class Diagram](documentation/ClassDiagram.png)
 ### Microservices identifiés
 
 1. **Service Produit** : 
