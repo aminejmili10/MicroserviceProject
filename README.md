@@ -6,8 +6,9 @@ Ce projet est une plateforme de e-commerce structurée selon les principes des *
 
 ## Architecture de l'Application
 Here are the key diagrams for the project:
-
+### Architecture
 ![Architecture Diagram](documentation/Architecture.png)
+### Class Diagram
 ![Class Diagram](documentation/ClassDiagram.png)
 ### Microservices identifiés
 
