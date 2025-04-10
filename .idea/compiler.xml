@@ -8,9 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="getway" />
+        <module name="configserver" />
         <module name="eureka" />
+        <module name="UserGestion" />
       </profile>
-      <profile name="Annotation profile for commandeGestion" enabled="true">
+      <profile name="Annotation profile for demandeGestion" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -18,15 +20,17 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
         <module name="demandeGestion" />
-        <module name="Paiment" />
-        <module name="commandeGestion" />
         <module name="ProductGestion" />
+        <module name="Paiment" />
         <module name="Livraison" />
         <module name="Blog" />
-        <module name="UserGestion" />
+        <module name="commandeGestion" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="backend" target="17" />
+      <module name="backend (1)" target="17" />
+      <module name="backend (2)" target="17" />
       <module name="demo" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -37,7 +41,11 @@
       <module name="Paiment" options="-parameters" />
       <module name="ProductGestion" options="-parameters" />
       <module name="UserGestion" options="-parameters" />
+      <module name="backend" options="-parameters" />
+      <module name="backend (1)" options="-parameters" />
+      <module name="backend (2)" options="-parameters" />
       <module name="commandeGestion" options="-parameters" />
+      <module name="configserver" options="-parameters" />
       <module name="demandeGestion" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="eureka" options="-parameters" />
