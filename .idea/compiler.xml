@@ -12,19 +12,27 @@
         <module name="eureka" />
         <module name="UserGestion" />
       </profile>
-      <profile name="Annotation profile for demandeGestion" enabled="true">
+      <profile name="Annotation profile for commandeGestion" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
-        <module name="demandeGestion" />
         <module name="ProductGestion" />
         <module name="Paiment" />
         <module name="Livraison" />
         <module name="Blog" />
         <module name="commandeGestion" />
+      </profile>
+      <profile name="Annotation profile for Livraison" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="demandeGestion" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
