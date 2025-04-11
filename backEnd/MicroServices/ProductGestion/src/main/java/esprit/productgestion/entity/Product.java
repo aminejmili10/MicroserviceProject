@@ -10,12 +10,17 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 @ToString
 public class Product {
     @Id
     @GeneratedValue
     int id;
-    String name;
-
+    private String designation;
+    private float prix;
+    private int discount;
+    private float tauxRemise;
+    private String image;
+    private String article;
+    private String category;
+    private String marque;
 }

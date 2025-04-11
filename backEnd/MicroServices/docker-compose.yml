@@ -44,9 +44,25 @@ services:
     networks:
       - microservices-network
 
+  # Blogs Service
+  blogs:
+    build: ./MicroServices/Blogs
+    image: backend-blogs:latest
+    container_name: blogs-service
+    ports:
+      - "8090:8090"
+    depends_on:
+      - eureka
+      - configserver
+    environment:
+      - SPRING_CLOUD_CONFIG_URI=http://configserver:8888
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka
+    networks:
+      - microservices-network
+
   # UserGestion Service
   usergestion:
-    build: ./usergestion
+    build: ./MicroServices/UserGestion
     image: backend-usergestion:latest
     container_name: usergestion-service
     ports:
@@ -58,12 +74,15 @@ services:
     environment:
       - SPRING_CLOUD_CONFIG_URI=http://configserver:8888
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:mysql://usergestion-db:3306/springdb?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
     networks:
       - microservices-network
 
   # ProductGestion Service
   productgestion:
-    build: ./productgestion
+    build: ./MicroServices/ProductGestion
     image: backend-productgestion:latest
     container_name: productgestion-service
     ports:
@@ -75,12 +94,15 @@ services:
     environment:
       - SPRING_CLOUD_CONFIG_URI=http://configserver:8888
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:mysql://productgestion-db:3306/ProductGestion?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
     networks:
       - microservices-network
 
   # CommandeGestion Service
   commandegestion:
-    build: ./commandegestion
+    build: ./MicroServices/commandeGestion
     image: backend-commandegestion:latest
     container_name: commandegestion-service
     ports:
@@ -92,12 +114,15 @@ services:
     environment:
       - SPRING_CLOUD_CONFIG_URI=http://configserver:8888
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:mysql://commandegestion-db:3306/commandeGestion?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
     networks:
       - microservices-network
 
   # Livraison Service
   livraison:
-    build: ./livraison
+    build: ./MicroServices/Livraison
     image: backend-livraison:latest
     container_name: livraison-service
     ports:
@@ -109,12 +134,15 @@ services:
     environment:
       - SPRING_CLOUD_CONFIG_URI=http://configserver:8888
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:mysql://livraison-db:3306/LivraisonGestion?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
     networks:
       - microservices-network
 
   # Paiment Service
   paiment:
-    build: ./paiment
+    build: ./MicroServices/Paiment
     image: backend-paiment:latest
     container_name: paiment-service
     ports:
@@ -126,12 +154,15 @@ services:
     environment:
       - SPRING_CLOUD_CONFIG_URI=http://configserver:8888
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:mysql://paiment-db:3306/PaimentGestion?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
     networks:
       - microservices-network
 
   # DemandeGestion Service
   demandegestion:
-    build: ./demandegestion
+    build: ./MicroServices/demandeGestion
     image: backend-demandegestion:latest
     container_name: demandegestion-service
     ports:
@@ -143,6 +174,9 @@ services:
     environment:
       - SPRING_CLOUD_CONFIG_URI=http://configserver:8888
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:mysql://demandegestion-db:3306/demandeGestion?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
     networks:
       - microservices-network
 
