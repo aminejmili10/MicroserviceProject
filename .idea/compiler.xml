@@ -9,18 +9,19 @@
         <outputRelativeToContentRoot value="true" />
         <module name="getway" />
         <module name="configserver" />
+        <module name="Blogs" />
         <module name="eureka" />
         <module name="UserGestion" />
       </profile>
-      <profile name="Annotation profile for demandeGestion" enabled="true">
+      <profile name="Annotation profile for ProductGestion" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
-        <module name="demandeGestion" />
         <module name="ProductGestion" />
+        <module name="demandeGestion" />
         <module name="Paiment" />
         <module name="Livraison" />
         <module name="Blog" />
@@ -37,6 +38,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Blog" options="-parameters" />
+      <module name="Blogs" options="-parameters" />
       <module name="Livraison" options="-parameters" />
       <module name="Paiment" options="-parameters" />
       <module name="ProductGestion" options="-parameters" />
