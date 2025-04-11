@@ -24,14 +24,6 @@ Le microservice ProductGestion est construit avec **Spring Boot** et suit une ar
 - **Couche Service** : Implémente la logique métier dans `ProductService`, qui gère des opérations comme l'ajout d'un produit.
 - **Couche Contrôleur** : Expose des points de terminaison RESTful via `productRestController` pour gérer les requêtes HTTP.
 
-## Technologies Utilisées
-
-- **Java Spring Boot** : Framework backend pour construire le microservice.
-- **Spring Data JPA** : Pour les opérations sur la base de données.
-- **MySQL** : Base de données pour stocker les données des produits.
-- **Lombok** : Pour réduire le code répétitif (par exemple, getters, setters, constructeurs).
-- **Spring Cloud** : Pour la découverte de services (Eureka) et la gestion de la configuration (Config Server).
-- **Maven** : Gestion des dépendances et outil de construction.
 
 ## Prérequis
 
