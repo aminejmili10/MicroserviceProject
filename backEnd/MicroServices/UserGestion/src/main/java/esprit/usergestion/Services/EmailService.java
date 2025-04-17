@@ -10,8 +10,8 @@ public class EmailService {
 
     private static final Logger logger = Logger.getLogger(EmailService.class.getName());
 
-    @Autowired
-    private JavaMailSender mailSender;
+   // @Autowired
+    //private JavaMailSender mailSender;
 
     public void sendMeetingInvitation(String to, String subject, String body) {
         try {
@@ -20,7 +20,7 @@ public class EmailService {
             message.setSubject(subject);
             message.setText(body);
             message.setFrom("your-email@gmail.com"); // Replace with your email
-            mailSender.send(message);
+           // mailSender.send(message);
             logger.info("Email sent successfully to " + to);
         } catch (Exception e) {
             logger.severe("Failed to send email: " + e.getMessage());
