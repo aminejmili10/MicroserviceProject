@@ -23,6 +23,8 @@ public class PostController {
         try {
             Post createdPost = postService.savePost(post);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdPost);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -70,6 +72,19 @@ public class PostController {
             // Loguer l'exception pour avoir des informations sur l'erreur
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erreur interne lors de la suppression");
+        }
+    }
+    @GetMapping("/{postId}/summary")
+    public ResponseEntity<?> getSummary(@PathVariable Long postId) {
+        try {
+            Post post = postService.getPostById(postId);
+            String summary = postService.generateSummary(post.getContent());
+
+            System.out.println("Résumé généré : " + summary); // Debugging
+
+            return ResponseEntity.ok(summary);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Post non trouvé");
         }
     }
 }

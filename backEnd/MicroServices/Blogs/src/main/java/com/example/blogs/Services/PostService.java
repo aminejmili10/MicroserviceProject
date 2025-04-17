@@ -11,7 +11,8 @@ public interface PostService {
     void deletePost(Long postId);
     List<Post> getAllPosts();
     Post getPostById(Long postId);
-
+    String generateSummary(String content);
+    boolean containsBannedWords(String content);
 
 
 }
