@@ -23,6 +23,18 @@ public class PaymentController {
     @Value("${stripe.secret.key}")
     private String stripeSecretKey;
 
+
+
+
+
+
+
+    @PostConstruct
+    public void setup() {
+        Stripe.apiKey = stripeApiKey;
+    }
+
+
     @PostMapping("/create-checkout-session")
     public Map<String, String> createCheckoutSession(@RequestBody PaymentRequest request) throws Exception {
         Stripe.apiKey = stripeSecretKey;

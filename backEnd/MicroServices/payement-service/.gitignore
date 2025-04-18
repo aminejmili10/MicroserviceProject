@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+# Ne pas tracker les secrets
+src/main/resources/application-secret.properties
