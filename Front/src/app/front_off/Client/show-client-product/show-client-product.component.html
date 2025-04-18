@@ -1,0 +1,67 @@
+<app-navcl></app-navcl>
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center heading-section">
+        <h2 class="mb-4">Our Products</h2>
+        <p>Discover our range of high-quality products tailored for you.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="errorMessage" class="col-12 alert alert-danger text-center">
+        {{ errorMessage }}
+      </div>
+      <div *ngFor="let product of filteredProducts" class="col-md-4 col-lg-3 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" [src]="getProductImage(product.image)" [alt]="product.designation" style="height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.designation }}</h5>
+            <p class="card-text">
+              <strong>Brand:</strong> {{ product.marque }}<br>
+              <strong>Category:</strong> {{ product.category }}<br>
+              <strong>Price:</strong> {{ product.prix | currency }}<br>
+              <strong>Discount:</strong> {{ product.discount }}% ({{ product.tauxRemise * 100 }}% off)
+            </p>
+          </div>
+          <div class="card-footer text-center">
+            <a class="btn btn-primary btn-sm" [routerLink]="['/client/product-details', product.id]">
+              View Details
+            </a>
+            <button
+              class="btn btn-warning btn-sm mt-2"
+              (click)="addToCart(product.id, 1, product.prix)">
+              <i class="fa fa-cart-plus me-1"></i> Ajouter au panier
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-7 text-center">
+        <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+          <li class="nav-item me-2" *ngFor="let category of categories">
+            <button class="btn filter-btn"
+                    [class.active]="isActiveCategory(category)"
+                    (click)="filterByCategory(category)">
+              <i class="fa fa-tag me-2"></i>{{ category }}
+            </button>
+          </li>
+        </ul>
+        <!-- Toggle Chatbot Button -->
+        <button class="btn btn-success" (click)="toggleChatbot()">
+          {{ showChatbot ? 'Hide Chatbot' : 'Show Chatbot' }}
+        </button>
+      </div>
+    </div>
+    <!-- Chatbot Iframe Section -->
+    <div *ngIf="showChatbot" class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+      <iframe
+        src="https://www.chatbase.co/chatbot-iframe/fspvk8_szhng-7F_1OkvC"
+        width="100%"
+        style="height: 100%; min-height: 700px"
+        frameborder="0"
+      ></iframe>
+    </div>
+  </div>
+</section>
