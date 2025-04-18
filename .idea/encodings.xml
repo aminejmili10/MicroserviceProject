@@ -9,8 +9,12 @@
     <file url="file://$PROJECT_DIR$/backEnd/MicroServices/ProductGestion/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backEnd/MicroServices/UserGestion/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backEnd/MicroServices/UserGestion/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/commande-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backEnd/MicroServices/commandeGestion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/commandeGestion/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backEnd/MicroServices/demandeGestion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/demandeGestion/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/payement-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backEnd/Paiment/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backEnd/ProductGestion/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backEnd/UserGestion/src/main/java" charset="UTF-8" />

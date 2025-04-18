@@ -21,12 +21,12 @@ public class GetwayApplication {
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder){
         return builder.routes()
                 .route("user", r -> r.path("/user/**").uri("lb://user"))
-                .route("commande", r -> r.path("/commande/**").uri("lb://commande"))
-                .route("blog", r -> r.path("/blog/**").uri("lb://blog"))
-                .route("demande", r -> r.path("/demande/**").uri("lb://demandeGestion"))
-                .route("livraison", r -> r.path("/livraison/**").uri("lb://livraison"))
-                .route("paiement", r -> r.path("/paiement/**").uri("lb://paiment"))
-                .route("product", r -> r.path("/product/**").uri("lb://productGestion"))
+                .route("commande-service", r -> r.path("/commande/**").uri("lb://commande-service"))
+                .route("blogs", r -> r.path("/api/blog/**").uri("lb://blogs"))
+                .route("demandeGestion", r -> r.path("/api/demandes/**").uri("lb://demandeGestion"))
+                .route("Livraison", r -> r.path("/Livraison/**").uri("lb://Livraison"))
+                .route("payement-service", r -> r.path("/payment/**").uri("lb://payement-service"))
+                .route("ProductGestion", r -> r.path("/product/**").uri("lb://ProductGestion"))
                 .route("userGestion", r -> r.path("/userGestion/**").uri("lb://userGestion"))
                 .build();
 

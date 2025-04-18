@@ -48,7 +48,7 @@ public class SecurityConfig {
         return http.build();
     }
 */
- /*  @Bean
+   @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .cors(cors -> cors.disable())
@@ -58,7 +58,7 @@ public class SecurityConfig {
                 .httpBasic(AbstractHttpConfigurer::disable);
 
         return http.build();
-    }*/
+    }
     /*
   private final UserService userService;
 
@@ -99,7 +99,7 @@ public class SecurityConfig {
 
         return http.build();
     }*/
-
+/*
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
       http
@@ -140,5 +140,5 @@ public class SecurityConfig {
 
       return http.build();
   }
-
+*/
 }

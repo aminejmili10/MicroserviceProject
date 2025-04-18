@@ -1,51 +1,50 @@
 package esprit.productgestion.restcontroller;
 
+
 import esprit.productgestion.Services.IProductService;
 import esprit.productgestion.entity.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
 public class productRestController {
 
     private final IProductService iProductService;
-    private final String title = "Hello, I'm the PRODUCT Micro-Service";
 
+    @Autowired
     public productRestController(IProductService iProductService) {
         this.iProductService = iProductService;
     }
 
-    @RequestMapping("/hello")
-    public String sayHello() {
-        System.out.println(title);
-        return title;
-    }
-
-
     @PostMapping
     public ResponseEntity<Product> addProduct(@RequestBody Product product) {
-        Product createdProduct = iProductService.addProduct(product);
-        return ResponseEntity.ok(createdProduct);
+        System.out.println("Received POST /product with payload: " + product);
+        try {
+            Product createdProduct = iProductService.addProduct(product);
+            System.out.println("Product created: " + createdProduct);
+            return ResponseEntity.ok(createdProduct);
+        } catch (Exception e) {
+            System.err.println("Error creating product: " + e.getMessage());
+            return ResponseEntity.badRequest().body(null);
+        }
     }
 
-    // Read all products
     @GetMapping
-    public ResponseEntity<List<Product>> getAllProducts() {
-        List<Product> products = iProductService.getAllProducts();
-        return ResponseEntity.ok(products);
+    public List<Product> getAllProducts() {
+        return iProductService.getAllProducts();
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable int id) {
-        return iProductService.getProductById(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        Optional<Product> product = iProductService.getProductById(id);
+        return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
-
 
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable int id, @RequestBody Product productDetails) {
@@ -57,12 +56,11 @@ public class productRestController {
         }
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable int id) {
         try {
             iProductService.deleteProduct(id);
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.ok().build();
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
