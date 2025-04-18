@@ -8,9 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="getway" />
-        <module name="backend" />
-        <module name="configserver" />
+        <module name="payement-service" />
         <module name="eureka" />
+        <module name="configserver" />
         <module name="UserGestion" />
       </profile>
       <profile name="Annotation profile for ProductGestion" enabled="true">
@@ -22,26 +22,40 @@
         </processorPath>
         <module name="ProductGestion" />
       </profile>
-      <profile name="Annotation profile for demandeGestion" enabled="true">
+      <profile name="Annotation profile for Blogs" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
-        <module name="demandeGestion" />
-        <module name="Paiment" />
-        <module name="Livraison" />
         <module name="Blogs" />
-        <module name="Blog" />
-        <module name="commandeGestion" />
+      </profile>
+      <profile name="Annotation profile for demande" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="demande" />
+        <module name="Livraison" />
+        <module name="commande-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="backend" target="17" />
       <module name="backend (1)" target="17" />
       <module name="backend (2)" target="17" />
+      <module name="Blog" target="17" />
+      <module name="commandeGestion" target="1.5" />
+      <module name="demandeGestion" target="1.5" />
       <module name="demo" target="17" />
       <module name="GestionProduit" target="17" />
+      <module name="Livraison (1)" target="17" />
+      <module name="Livraison (2)" target="17" />
+      <module name="Livraison1" target="17" />
+      <module name="Paiment" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -50,18 +64,24 @@
       <module name="Blogs" options="-parameters" />
       <module name="GestionProduit" options="-parameters" />
       <module name="Livraison" options="-parameters" />
+      <module name="Livraison (1)" options="-parameters" />
+      <module name="Livraison (2)" options="-parameters" />
+      <module name="Livraison1" options="-parameters" />
       <module name="Paiment" options="-parameters" />
       <module name="ProductGestion" options="-parameters" />
       <module name="UserGestion" options="-parameters" />
       <module name="backend" options="-parameters" />
       <module name="backend (1)" options="-parameters" />
       <module name="backend (2)" options="-parameters" />
-      <module name="commandeGestion" options="-parameters" />
+      <module name="commande-service" options="-parameters" />
+      <module name="commandeGestion" options="" />
       <module name="configserver" options="-parameters" />
-      <module name="demandeGestion" options="-parameters" />
+      <module name="demande" options="-parameters" />
+      <module name="demandeGestion" options="" />
       <module name="demo" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="getway" options="-parameters" />
+      <module name="payement-service" options="-parameters" />
     </option>
   </component>
 </project>

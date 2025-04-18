@@ -27,6 +27,12 @@
             <a class="btn btn-primary btn-sm" [routerLink]="['/client/product-details', product.id]">
               View Details
             </a>
+            <button
+              class="btn btn-warning btn-sm mt-2"
+              (click)="addToCart(product.id, 1, product.prix)">
+              <i class="fa fa-cart-plus me-1"></i> Ajouter au panier
+            </button>
+
           </div>
         </div>
       </div>
@@ -42,7 +48,20 @@
             </button>
           </li>
         </ul>
+        <!-- Toggle Chatbot Button -->
+        <button class="btn btn-success" (click)="toggleChatbot()">
+          {{ showChatbot ? 'Hide Chatbot' : 'Show Chatbot' }}
+        </button>
       </div>
+    </div>
+    <!-- Chatbot Iframe Section -->
+    <div *ngIf="showChatbot" class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+      <iframe
+        src="https://www.chatbase.co/chatbot-iframe/fspvk8_szhng-7F_1OkvC"
+        width="100%"
+        style="height: 100%; min-height: 700px"
+        frameborder="0"
+      ></iframe>
     </div>
   </div>
 </section>

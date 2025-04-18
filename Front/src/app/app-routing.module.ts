@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './front_off/Client/home/home.component';
-import { BlogComponent } from './front_off/Client/blog/blog/blog.component';
+
 import { PaymentComponent } from './front_off/Client/payment/payment/payment.component';
 import { ProjectComponent } from './front_off/Client/project/project/project.component';
 import { SheduleComponent } from './front_off/Client/schedule/shedule/shedule.component';
@@ -25,7 +25,7 @@ import { UserRolesComponent } from './back_off/admin/user-roles/user-roles.compo
 import { ModelComponent } from './back_off/admin/Resource/model/model.component';
 import { MeetingComponent } from './back_off/admin/meeting/meeting.component';
 import { ManagerMeetingComponent } from './front_off/Manager/manager-meeting/manager-meeting.component';
-import { PostTweetComponent } from './back_off/admin/Resource/post-tweet/post-tweet.component';
+import { PostTweetComponent } from './back_off/admin/Product/post-tweet/post-tweet.component';
 import { FinancialComponent } from './back_off/admin/Financial/financial/financial.component';
 import { ProjectFinancialsComponent } from './back_off/admin/Financial/project-financials/project-financials.component';
 import { FinancialPaymentsComponent } from './back_off/admin/Financial/financial-payments/financial-payments.component';
@@ -41,13 +41,28 @@ import {ShowClientProductComponent} from "./front_off/Client/show-client-product
 import {
   ClientProductDetailsComponent
 } from "./front_off/Client/client-product-details/client-product-details.component";
+import {CreatePostComponent} from "./front_off/Client/blog/create-post/create-post.component";
+import {ViewAllComponent} from "./front_off/Client/blog/view-all/view-all.component";
+import {ViewPostComponent} from "./front_off/Client/blog/view-post/view-post.component";
+import {EditPostComponent} from "./front_off/Client/blog/edit-post/edit-post.component";
+import {AdminViewComponent} from "./back_off/admin/blog/admin-view/admin-view.component";
+import {PostDetailComponent} from "./back_off/admin/blog/post-detail/post-detail.component";
+import {DemandeComponent} from "./front_off/Client/demande/demande.component";
+import {DemandeListComponent} from "./front_off/Client/demande-list/demande-list.component";
+import {AdminDemandeComponent} from "./back_off/admin/admin-demande/admin-demande.component";
+import {LivraisonComponent} from "./front_off/Livraison/livraison/livraison.component";
+import {CartComponentComponent} from "./front_off/Client/Commande/cart-component/cart-component.component";
+import {HistoryPayementComponent} from "./front_off/Client/Commande/history-payement/history-payement.component";
+import {HistoryOrderComponent} from "./front_off/Client/Commande/history-order/history-order.component";
 
 const routes: Routes = [
   {
     path: 'client',
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'blog', component: BlogComponent },
+      { path: 'panier', component: CartComponentComponent },
+      { path: 'historyPqayment', component: HistoryPayementComponent },
+
       { path: 'payment', component: PaymentComponent },
       { path: 'products', component: ShowClientProductComponent },
       { path: 'product-details/:id', component: ClientProductDetailsComponent },
@@ -60,6 +75,13 @@ const routes: Routes = [
       { path: 'user-management', component: UserManagmentComponent },
       { path: 'success', component: SuccessComponent },
       { path: 'cancel', component: ProjectPaymentsComponent },
+      {path:'blog/create-post',component:CreatePostComponent},
+      {path:'blog/view-all',component:ViewAllComponent},
+      {path:'blog/view-post/:id',component:ViewPostComponent},
+      { path: 'blog/edit-post/:id', component: EditPostComponent },
+      { path: 'demande', component: DemandeComponent },
+      { path: 'demandelist', component: DemandeListComponent },
+      { path: 'livraison', component: LivraisonComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]
   },
@@ -68,6 +90,7 @@ const routes: Routes = [
     children: [
       { path: '', component: NavadminComponent },
       { path: 'products', component: ShowadminproductsComponent },
+      { path: 'historyOrder', component: HistoryOrderComponent },
       { path: 'updateproduct/:id', component: UpdateproductComponent }, // Fixed path
       { path: 'addproduct', component: AddproductComponent },
       { path: 'resource', component: ShowadminresourceComponent },
@@ -82,6 +105,9 @@ const routes: Routes = [
       { path: 'project-financials/:projectId', component: ProjectFinancialsComponent },
       { path: 'financial-payments/:financialId', component: FinancialPaymentsComponent },
       { path: 'project-resources/:projectName', component: ProjectResourcesComponent },
+      { path: 'blog', component: AdminViewComponent },
+      { path: 'demandeadmin', component: AdminDemandeComponent },
+      { path: 'post/:id', component: PostDetailComponent },
     ]
   },
   {

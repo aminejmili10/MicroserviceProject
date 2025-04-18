@@ -18,9 +18,29 @@
               </button>
             </li>
           </ul>
-          <a class="btn btn-success btn-lg" [routerLink]="['/admin/addproduct']">
-            <i class="fa fa-plus me-2"></i>Add Product
-          </a>
+          <div class="d-flex justify-content-end gap-2">
+            <a class="btn btn-success btn-lg" [routerLink]="['/admin/addproduct']">
+              <i class="fa fa-plus me-2"></i>Add Product
+            </a>
+            <button class="btn btn-info btn-lg" (click)="toggleStatistics()">
+              <i class="fa fa-chart-bar me-2"></i>Show Statistics
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistics Section -->
+      <div *ngIf="showStatistics" class="card mb-4">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Category Statistics</h5>
+        </div>
+        <div class="card-body">
+          <canvas baseChart
+                  [data]="barChartData"
+                  [options]="barChartOptions"
+                  [type]="'bar'"
+                  height="300">
+          </canvas>
         </div>
       </div>
 

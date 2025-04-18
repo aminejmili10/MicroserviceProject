@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService, Product } from '../../../services/ProductService/ProductService';
 import { Subscription } from 'rxjs';
+import {CartService} from "../../../services/cart/cart.service";
 
 @Component({
   selector: 'app-show-client-product',
@@ -13,9 +14,12 @@ export class ShowClientProductComponent implements OnInit, OnDestroy {
   selectedCategory: string | null = null;
   categories: string[] = [];
   errorMessage: string = '';
+  showChatbot: boolean = false;
   private subscription: Subscription = new Subscription();
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService,
+        private      cartService : CartService
+              ) {}
 
   ngOnInit(): void {
     this.subscription = this.productService.products$.subscribe({
@@ -57,4 +61,13 @@ export class ShowClientProductComponent implements OnInit, OnDestroy {
       this.selectedCategory = null; // Show all products by default
     }
   }
+  toggleChatbot(): void {
+    this.showChatbot = !this.showChatbot;
+  }
+  addToCart(productId: number, quantity: number, unitPrice: number): void {
+    this.cartService.addToCart({ productId, quantity, unitPrice });
+    alert('Produit ajouté au panier ✅');
+
+  }
+
 }

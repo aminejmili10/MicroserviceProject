@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService, Product } from '../../../../services/ProductService/ProductService';
 import { Subscription } from 'rxjs';
+import { ChartData, ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-showadminproducts',
@@ -13,6 +14,23 @@ export class ShowadminproductsComponent implements OnInit, OnDestroy {
   categories: string[] = [];
   private subscription: Subscription = new Subscription();
   errorMessage: string = '';
+  showStatistics: boolean = false;
+  barChartData: ChartData<'bar'> = { labels: [], datasets: [] };
+  barChartOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: { display: true, text: 'Number of Products' }
+      },
+      x: {
+        title: { display: true, text: 'Category' }
+      }
+    },
+    plugins: {
+      legend: { display: false }
+    }
+  };
 
   constructor(private productService: ProductService) {}
 
@@ -21,6 +39,7 @@ export class ShowadminproductsComponent implements OnInit, OnDestroy {
       next: (products) => {
         this.products = products;
         this.updateCategories();
+        this.updateStatistics();
       },
       error: (err) => console.error('Error subscribing to products:', err)
     });
@@ -58,6 +77,7 @@ export class ShowadminproductsComponent implements OnInit, OnDestroy {
         next: () => {
           console.log('Product deleted:', id);
           this.errorMessage = '';
+          this.updateStatistics();
         },
         error: (err) => {
           console.error('Error deleting product:', err);
@@ -74,5 +94,32 @@ export class ShowadminproductsComponent implements OnInit, OnDestroy {
     } else if (this.selectedCategory && !this.categories.includes(this.selectedCategory)) {
       this.selectedCategory = null;
     }
+  }
+
+  toggleStatistics(): void {
+    this.showStatistics = !this.showStatistics;
+  }
+
+  private updateStatistics(): void {
+    const statsMap = this.products.reduce((acc, product) => {
+      acc[product.category] = (acc[product.category] || 0) + 1;
+      return acc;
+    }, {} as { [key: string]: number });
+
+    const labels = Object.keys(statsMap);
+    const data = Object.values(statsMap);
+
+    this.barChartData = {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Products per Category',
+          data: data,
+          backgroundColor: 'rgba(0, 123, 255, 0.5)',
+          borderColor: 'rgba(0, 123, 255, 1)',
+          borderWidth: 1
+        }
+      ]
+    };
   }
 }
