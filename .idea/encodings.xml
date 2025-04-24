@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/Back/backend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/Blog/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/Livraison/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/Paiment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/ProductGestion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/UserGestion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/UserGestion/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/commandeGestion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/MicroServices/demandeGestion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/Paiment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/ProductGestion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/UserGestion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/commandeGestion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/configserver/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/demandeGestion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/demo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backEnd/getway/src/main/java" charset="UTF-8" />
+  </component>
+</project>

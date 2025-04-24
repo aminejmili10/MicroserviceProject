@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="getway" />
+        <module name="payement-service" />
+        <module name="configserver" />
+        <module name="eureka" />
+        <module name="UserGestion" />
+      </profile>
+      <profile name="Annotation profile for Blogs" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="Blogs" />
+      </profile>
+      <profile name="Annotation profile for ProductGestion" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+        </processorPath>
+        <module name="ProductGestion" />
+      </profile>
+      <profile name="Annotation profile for demande" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="demande" />
+        <module name="Livraison" />
+        <module name="commande-service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Blogs" options="-parameters" />
+      <module name="Livraison" options="-parameters" />
+      <module name="ProductGestion" options="-parameters" />
+      <module name="UserGestion" options="-parameters" />
+      <module name="commande-service" options="-parameters" />
+      <module name="configserver" options="-parameters" />
+      <module name="demande" options="-parameters" />
+      <module name="eureka" options="-parameters" />
+      <module name="getway" options="-parameters" />
+      <module name="payement-service" options="-parameters" />
+    </option>
+  </component>
+</project>
